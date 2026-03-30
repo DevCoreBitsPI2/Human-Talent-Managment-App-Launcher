@@ -1,3 +1,12 @@
 [submodule "gateway"]
 	path = gateway
 	url = https://github.com/DevCoreBits-PI2/Gateway.git
+[submodule "administrative-data-ms"]
+	path = administrative-data-ms
+	url = https://github.com/DevCoreBits-PI2/Administrative-Data-Microservice.git
+[submodule "users-ms"]
+	path = users-ms
+	url = https://github.com/DevCoreBits-PI2/Users-Microservice.git
+[submodule "trajectory-ms"]
+	path = trajectory-ms
+	url = https://github.com/DevCoreBits-PI2/Trajectory-Microservice.git
