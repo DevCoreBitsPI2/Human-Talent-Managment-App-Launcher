@@ -24,5 +24,5 @@ services:
     environment:
       - PORT=3001
       - NATS_SERVERS=nats://nats-server:4222
-      - DIRECT_URL=${DIRECT_URL_ADMINISTRATIVE_DATA_DB}
+      - DATABASE_URL=${DIRECT_URL_ADMINISTRATIVE_DATA_DB}
   
