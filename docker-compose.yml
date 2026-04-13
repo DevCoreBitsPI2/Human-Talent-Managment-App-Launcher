@@ -25,6 +25,9 @@ services:
       - PORT=3001
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=${DIRECT_URL_ADMINISTRATIVE_DATA_DB}
+      - CLOUDINARY_NAME=${CLOUDINARY_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
   
   users-ms:
     build: ./users-ms
