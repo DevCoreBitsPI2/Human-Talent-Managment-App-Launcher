@@ -6,7 +6,7 @@ Cuando clones el repositorio por primera vez, debes inicializar y actualizar los
 
 ```
 git clone <repository_url>
-cd Douremember-launcher
+cd Human-Talent-Managment-App-Launcher
 git submodule update --init --recursive
 ```
 
