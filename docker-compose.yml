@@ -4,6 +4,9 @@ services:
     image: nats:latest
     ports:
       - "8222:8222"
+    volumes:                                                                                                                                                                        
+    - ./nats-server.conf:/etc/nats/nats-server.conf                                                                                                                        
+    command: ["-c", "/etc/nats/nats-server.conf"]  
 
   gateway:
     build: ./gateway
@@ -12,6 +15,8 @@ services:
     volumes:
       - ./gateway/src:/usr/src/app/src
     command: npm run start:dev
+    depends_on:
+      - nats-server
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
@@ -21,6 +26,8 @@ services:
     volumes:
       - ./administrative-data-ms/src:/usr/src/app/src
     command: npm run start:dev
+    depends_on:
+      - nats-server
     environment:
       - PORT=3001
       - NATS_SERVERS=nats://nats-server:4222
@@ -28,12 +35,14 @@ services:
       - CLOUDINARY_NAME=${CLOUDINARY_NAME}
       - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
       - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
-  
+
   users-ms:
     build: ./users-ms
     volumes:
       - ./users-ms/src:/usr/src/app/src
     command: npm run start:dev
+    depends_on:
+      - nats-server
     environment:
       - PORT=3002
       - NATS_SERVERS=nats://nats-server:4222
@@ -44,6 +53,8 @@ services:
     volumes:
       - ./trajectory-ms/src:/usr/src/app/src
     command: npm run start:dev
+    depends_on:
+      - nats-server
     environment:
       - PORT=3002
       - NATS_SERVERS=nats://nats-server:4222
